@@ -3,6 +3,7 @@ using System.Numerics;
 
 partial class SandboxPlayer : Player
 {
+	[Net] public float Money { get; set; }
 	private TimeSince timeSinceDropped;
 	private TimeSince timeSinceJumpReleased;
 
@@ -341,5 +342,20 @@ partial class SandboxPlayer : Player
 			Camera.FirstPersonViewer = this;
 			Camera.Main.SetViewModelCamera( 90f );
 		}
+	}
+
+	public void SetMoney( float money )
+	{
+		Money = money;
+	}
+
+	public void AddMoney( float money )
+	{
+		Money += money;
+	}
+
+	public void RemoveMoney( float money )
+	{
+		Money -= money;
 	}
 }
